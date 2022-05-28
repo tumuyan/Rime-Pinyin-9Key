@@ -2,15 +2,13 @@
 # encoding: utf-8
 
 schema:
-  schema_id: pinyin_simp
-  name: 袖珍简化字拼音
+  schema_id: pinyin_simp_9key
+  name: 袖珍简化字拼音·九宫
   version: '0.9'
   author:
     - 佚名
   description: |
     源自 Android 拼音
-  dependencies:
-    - stroke
 
 switches:
   - name: ascii_mode
@@ -41,6 +39,9 @@ engine:
     - punct_translator
     - script_translator
     - reverse_lookup_translator
+    - table_translator@pinyin_simp_pin
+  filters:
+    - uniquifier
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
@@ -64,20 +65,29 @@ speller:
     - derive/([iu])a(o|ng?)$/a$1$2/
 
 translator:
-  dictionary: pinyin_simp
+  dictionary: pinyin_simp_9key
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
+  enable_correction: false
+
+pinyin_simp_pin:
+  dictionary: ""
+  user_dict: pinyin_simp_pin
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 1
 
 reverse_lookup:
-  dictionary: stroke
+  dictionary: pinyin_simp_9key
   enable_completion: true
   prefix: "`"
   suffix: "'"
-  tips: 〔笔画〕
+  tips: 〔反查〕
   preedit_format:
-    - xlit/hspnz/一丨丿丶乙/
+    - erase/^_//
 
 punctuator:
   import_preset: symbols
@@ -92,4 +102,3 @@ recognizer:
     # so those who have customized '/' for direct commit won't be affected by
     # this change.
     punct: "^/([0-9]+[a-z]*|[a-z]+)$"
-    reverse_lookup: "`[a-z]*'?$"
