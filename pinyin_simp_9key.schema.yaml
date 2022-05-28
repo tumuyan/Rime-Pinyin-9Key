@@ -44,7 +44,7 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba
+  alphabet: zyxwvutsrqponmlkjihgfedcba23456789
   delimiter: " '"
   algebra:
     - erase/^hm$/
@@ -63,6 +63,15 @@ speller:
     - derive/ong$/on/
     - derive/ao$/oa/
     - derive/([iu])a(o|ng?)$/a$1$2/
+    #- xlit/abcdefghijklmnopqrstuvwxyz/22233344455566677778889999/
+    - derive/[abc]/2/
+    - derive/[def]/3/
+    - derive/[ghi]/4/
+    - derive/[jkl]/5/
+    - derive/[mno]/6/
+    - derive/[pqrs]/7/
+    - derive/[tuv]/8/
+    - derive/[wxyz]/9/
 
 translator:
   dictionary: pinyin_simp_9key
