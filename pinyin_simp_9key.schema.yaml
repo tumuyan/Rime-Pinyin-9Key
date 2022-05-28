@@ -103,7 +103,33 @@ punctuator:
 
 key_binder:
   import_preset: default
-
+  bindings:
+    - {accept: minus, send: '-', when: has_menu}
+    - {accept: equal, send: "=", when: has_menu}
+    # 改为数字案件输入小键盘编码，完成候选（有bug，无法直接输入数字
+    - {accept: 0, send: KP_0, when: always}
+    - {accept: 1, send: KP_1, when: always}
+    - {accept: 2, send: KP_2, when: always}
+    - {accept: 3, send: KP_3, when: always}
+    - {accept: 4, send: KP_4, when: always}
+    - {accept: 5, send: KP_5, when: always}
+    - {accept: 6, send: KP_6, when: always}
+    - {accept: 7, send: KP_7, when: always}
+    - {accept: 8, send: KP_8, when: always}
+    - {accept: 9, send: KP_9, when: always}
+    # 改为小键盘输入编码
+    - {accept: KP_0, send: 0, when: always}
+    - {accept: KP_1, send: 1, when: always}
+    - {accept: KP_2, send: 2, when: always}
+    - {accept: KP_3, send: 3, when: always}
+    - {accept: KP_4, send: 4, when: always}
+    - {accept: KP_5, send: 5, when: always}
+    - {accept: KP_6, send: 6, when: always}
+    - {accept: KP_7, send: 7, when: always}
+    - {accept: KP_8, send: 8, when: always}
+    - {accept: KP_9, send: 9, when: always}
+#    - {accept: "Control+Shift+space", toggle: simplification, when: always}
+#    - {accept: "Control+Shift+P", toggle: show_pinyin, when: composing}
 recognizer:
   import_preset: default
   patterns:
