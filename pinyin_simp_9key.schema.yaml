@@ -20,7 +20,7 @@ switches:
     states: [ 。，, ．， ]
   - name: pinyin_9key_filter #供lua_filter 取拼音候选使用
     reset: 0
-    states: [ 'x', 'v' ]
+    states: [ '拼音筛选', '笔画筛选' ]
 engine:
   processors:
     - lua_processor@pinyin_9key_processor
