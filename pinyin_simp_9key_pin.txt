@@ -1,12 +1,12 @@
 ﻿# Rime table
 # coding: utf-8
-#@/db_name  pinyin_simp_pin.txt
+#@/db_name  pinyin_simp_9key_pin.txt
 #@/db_type	tabledb
 #
 # Neko7ina <hua199057+Rime@gmail.com>
 #
 # 请将该文件以UTF-8编码保存
-# Rime用户文件夹/pinyin_simp_pin.txt
+# Rime用户文件夹/pinyin_simp_9key_pin.txt
 #
 # 「no comment」以下内容#号不实现注释功能
 # no comment

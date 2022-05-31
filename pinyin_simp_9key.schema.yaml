@@ -14,13 +14,16 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [ 中文, 西文 ]
-  - name: full_shape
-    states: [ 半角, 全角 ]
+  #- name: full_shape
+  #  states: [ 半角, 全角 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
-
+  - name: pinyin_9key_filter #供lua_filter 取拼音候选使用
+    reset: 0
+    states: [ 'x', 'v' ]
 engine:
   processors:
+    - lua_processor@pinyin_9key_processor
     - ascii_composer
     - recognizer
     - key_binder
@@ -41,10 +44,11 @@ engine:
     - reverse_lookup_translator
     - table_translator@pinyin_simp_pin
   filters:
+    - lua_filter@pinyin_9key_filter
     - uniquifier
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba23456789
+  alphabet: zyxwvutsrqponmlkjihgfedcba23456789-_
   delimiter: " '"
   algebra:
     - erase/^hm$/
@@ -83,7 +87,7 @@ translator:
 
 pinyin_simp_pin:
   dictionary: ""
-  user_dict: pinyin_simp_pin
+  user_dict: pinyin_simp_9key_pin
   db_class: stabledb
   enable_completion: false
   enable_sentence: false
